@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { NAV_ITEMS, SectionId, Sidebar } from './components/Sidebar';
+import { CosmosBackground } from './components/CosmosBackground';
 import { Spotlight } from './components/Spotlight';
 
 interface ExperienceItem {
@@ -182,9 +183,10 @@ export function App() {
         Pular para o conteúdo
       </a>
 
+      <CosmosBackground />
       <Spotlight />
 
-      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:flex lg:justify-between lg:gap-16 lg:px-24 lg:py-0">
+      <div className="relative z-10 mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:flex lg:justify-between lg:gap-16 lg:px-24 lg:py-0">
         <Sidebar
           activeSection={activeSection}
           onSelectSection={handleSelectSection}
