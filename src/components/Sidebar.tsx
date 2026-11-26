@@ -40,7 +40,8 @@ export function Sidebar({ activeSection, onSelectSection }: SidebarProps) {
         <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
           <a
             href="#"
-            className="transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none"
+            aria-label="Daniel Chagas — Voltar ao topo"
+            className="rounded-sm transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
           >
             Daniel Chagas
           </a>
@@ -54,7 +55,7 @@ export function Sidebar({ activeSection, onSelectSection }: SidebarProps) {
           Desenvolvedor focado em performance e experiência.
         </p>
 
-        <nav className="mt-10 lg:mt-16" aria-label="Navegação entre seções">
+        <nav className="hidden lg:mt-16 lg:block" aria-label="Navegação principal">
           <ul className="w-max space-y-1">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;
@@ -64,8 +65,9 @@ export function Sidebar({ activeSection, onSelectSection }: SidebarProps) {
                   <a
                     href={`#${item.id}`}
                     onClick={(event) => handleNavClick(event, item.id)}
+                    aria-label={`Ir para a seção ${item.label}`}
                     aria-current={isActive ? 'location' : undefined}
-                    className="group flex items-center py-3 focus-visible:outline-none"
+                    className="group flex items-center rounded-sm py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
                   >
                     <span
                       className={`mr-4 h-px transition-all duration-300 motion-reduce:transition-none ${
@@ -100,12 +102,12 @@ export function Sidebar({ activeSection, onSelectSection }: SidebarProps) {
             href="https://github.com/danichagas"
             target="_blank"
             rel="noreferrer noopener"
-            aria-label="GitHub (abre em nova aba)"
+            aria-label="GitHub de Daniel Chagas (abre em nova aba)"
             title="GitHub"
-            className="block text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none"
+            className="block rounded-sm text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
           >
             <span className="sr-only">GitHub</span>
-            <Github className="h-6 w-6" strokeWidth={1.75} />
+            <Github aria-hidden="true" className="h-6 w-6" strokeWidth={1.75} />
           </a>
         </li>
         <li>
@@ -113,23 +115,23 @@ export function Sidebar({ activeSection, onSelectSection }: SidebarProps) {
             href="https://www.linkedin.com/in/danichagasdev/"
             target="_blank"
             rel="noreferrer noopener"
-            aria-label="LinkedIn (abre em nova aba)"
+            aria-label="LinkedIn de Daniel Chagas (abre em nova aba)"
             title="LinkedIn"
-            className="block text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none"
+            className="block rounded-sm text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
           >
             <span className="sr-only">LinkedIn</span>
-            <Linkedin className="h-6 w-6" strokeWidth={1.75} />
+            <Linkedin aria-hidden="true" className="h-6 w-6" strokeWidth={1.75} />
           </a>
         </li>
         <li>
           <a
             href="mailto:chagasdaniel788@gmail.com"
-            aria-label="Enviar e-mail"
+            aria-label="Enviar e-mail para Daniel Chagas"
             title="E-mail"
-            className="block text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none"
+            className="block rounded-sm text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
           >
             <span className="sr-only">E-mail</span>
-            <Mail className="h-6 w-6" strokeWidth={1.75} />
+            <Mail aria-hidden="true" className="h-6 w-6" strokeWidth={1.75} />
           </a>
         </li>
       </ul>

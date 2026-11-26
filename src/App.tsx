@@ -177,7 +177,7 @@ export function App() {
     <div className="relative min-h-screen bg-slate-900 text-slate-400 selection:bg-teal-300 selection:text-slate-900">
       <a
         href="#conteudo"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-teal-400/10 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-teal-300 focus:ring-1 focus:ring-teal-300/40 focus:outline-none"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-slate-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-300"
       >
         Pular para o conteúdo
       </a>
@@ -190,14 +190,14 @@ export function App() {
           onSelectSection={handleSelectSection}
         />
 
-        <main id="conteudo" className="pt-20 lg:w-[52%] lg:py-24">
+        <main id="conteudo" className="pt-16 lg:w-[52%] lg:py-24">
           {/* Seção: Sobre */}
           <section
             id="sobre"
             aria-labelledby="heading-sobre"
             className="mb-24 scroll-mt-16 lg:mb-36 lg:scroll-mt-24"
           >
-            <div className="sticky top-0 z-20 -mx-6 mb-4 bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <div className="sticky top-0 z-20 -mx-6 mb-4 bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
               <h2
                 id="heading-sobre"
                 className="text-sm font-bold uppercase tracking-widest text-slate-200"
@@ -235,7 +235,7 @@ export function App() {
             aria-labelledby="heading-experiencia"
             className="mb-24 scroll-mt-16 lg:mb-36 lg:scroll-mt-24"
           >
-            <div className="sticky top-0 z-20 -mx-6 mb-4 bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <div className="sticky top-0 z-20 -mx-6 mb-4 bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
               <h2
                 id="heading-experiencia"
                 className="text-sm font-bold uppercase tracking-widest text-slate-200"
@@ -250,7 +250,7 @@ export function App() {
                   key={`${item.period}-${item.company}`}
                   className="transition-opacity duration-300 lg:group-hover/list:opacity-50 lg:hover:!opacity-100"
                 >
-                  <article className="group relative grid grid-cols-1 gap-2 rounded-md p-4 transition-all duration-300 sm:grid-cols-8 sm:gap-6 lg:-mx-4 hover:bg-slate-800/50 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
+                  <article className="group relative -mx-4 grid grid-cols-1 gap-2 rounded-md p-4 transition-all duration-300 sm:grid-cols-8 sm:gap-6 hover:bg-slate-800/50 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
                     <header
                       className="z-10 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
                       aria-label={item.period}
@@ -262,7 +262,15 @@ export function App() {
                       <h3 className="font-medium leading-snug text-slate-200">
                         <a
                           href={item.href ?? '#experiencia'}
-                          className="inline-flex items-baseline font-medium leading-tight text-slate-200 transition-colors group-hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none"
+                          target={
+                            item.href?.startsWith('http') ? '_blank' : undefined
+                          }
+                          rel={
+                            item.href?.startsWith('http')
+                              ? 'noreferrer noopener'
+                              : undefined
+                          }
+                          className="inline-flex items-baseline rounded-sm font-medium leading-tight text-slate-200 transition-colors group-hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
                         >
                           <span className="absolute inset-0 hidden rounded-md lg:block" />
                           <span>
@@ -305,7 +313,8 @@ export function App() {
                 href="public\projects\Daniel Chagas Curriculo.pdf"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="group/link inline-flex items-baseline font-medium leading-tight text-slate-200 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none"
+                aria-label="Ver currículo completo em PDF (abre em nova aba)"
+                className="group/link inline-flex items-baseline rounded-sm font-medium leading-tight text-slate-200 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
               >
                 <span>Ver currículo completo</span>
                 <ArrowUpRight
@@ -322,7 +331,7 @@ export function App() {
             aria-labelledby="heading-projetos"
             className="mb-24 scroll-mt-16 lg:mb-36 lg:scroll-mt-24"
           >
-            <div className="sticky top-0 z-20 -mx-6 mb-4 bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <div className="sticky top-0 z-20 -mx-6 mb-4 bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
               <h2
                 id="heading-projetos"
                 className="text-sm font-bold uppercase tracking-widest text-slate-200"
@@ -337,7 +346,7 @@ export function App() {
                   key={project.title}
                   className="transition-opacity duration-300 lg:group-hover/list:opacity-50 lg:hover:!opacity-100"
                 >
-                  <article className="group relative grid grid-cols-1 gap-4 rounded-md p-4 transition-all duration-300 sm:grid-cols-8 sm:gap-6 lg:-mx-4 hover:bg-slate-800/50 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
+                  <article className="group relative -mx-4 grid grid-cols-1 gap-4 rounded-md p-4 transition-all duration-300 sm:grid-cols-8 sm:gap-6 hover:bg-slate-800/50 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
                     <div className="z-10 sm:col-span-2">
                       <img
                         src={project.thumbnail}
@@ -345,7 +354,7 @@ export function App() {
                         loading="lazy"
                         width={200}
                         height={125}
-                        className="w-48 rounded border-2 border-slate-200/10 object-cover transition duration-300 sm:w-full group-hover:border-slate-200/30"
+                        className="w-full max-w-[200px] rounded border-2 border-slate-200/10 object-cover transition duration-300 sm:max-w-none group-hover:border-slate-200/30"
                       />
                     </div>
 
@@ -363,7 +372,7 @@ export function App() {
                               ? 'noreferrer noopener'
                               : undefined
                           }
-                          className="inline-flex items-baseline font-medium leading-tight text-slate-200 transition-colors group-hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none"
+                          className="inline-flex items-baseline rounded-sm font-medium leading-tight text-slate-200 transition-colors group-hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
                         >
                           <span className="absolute inset-0 hidden rounded-md lg:block" />
                           <span>
@@ -409,14 +418,27 @@ export function App() {
             </ul>
           </section>
 
-          <footer className="max-w-md pb-16 text-xs leading-relaxed text-slate-500 sm:pb-0">
+          <footer className="max-w-md pb-16 text-sm leading-relaxed text-slate-500 sm:pb-0">
             <p>
-              Estrutura base construída com{' '}
+              Desenvolvido com{' '}
               <span className="font-medium text-slate-400">React</span>,{' '}
-              <span className="font-medium text-slate-400">TypeScript</span> e{' '}
-              <span className="font-medium text-slate-400">Tailwind CSS</span>,
+              <span className="font-medium text-slate-400">Vite</span>,{' '}
+              <span className="font-medium text-slate-400">TypeScript</span>,{' '}
+              <span className="font-medium text-slate-400">Tailwind CSS</span> e{' '}
+              <span className="font-medium text-slate-400">Lucide Icons</span>,
               utilizando a tipografia{' '}
               <span className="font-medium text-slate-400">Inter</span>.
+              Código-fonte disponível no{' '}
+              <a
+                href="https://github.com/danichagas"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Ver código-fonte do portfólio no GitHub (abre em nova aba)"
+                className="rounded-sm font-medium text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
+              >
+                GitHub
+              </a>
+              .
             </p>
           </footer>
         </main>

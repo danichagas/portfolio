@@ -37,4 +37,11 @@
     letter-spacing: -0.025em;
     color: #E2E8F0;
   }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #5EEAD4;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
 }
