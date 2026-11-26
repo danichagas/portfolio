@@ -61,7 +61,7 @@ const PROJECTS: ProjectItem[] = [
     href: 'https://github.com/danichagas/Route-Optimizer-API',
     description:
       'Esta API tem como objetivo principal criar um algoritmo de backend capaz de otimizar a rota de entrega de um caminhão. O sistema receberá uma lista de pontos de entrega (com coordenadas) e determinará a ordem de visitação que minimize a distância total percorrida, garantindo a maior eficiência logística.',
-    thumbnail: '/projects/route-optimizer.svg',
+    thumbnail: '/projects/route-optimizer.jpg',
     thumbnailAlt: 'Prévia visual do projeto Route Optimizer API',
     tags: [
       'TypeScript',
@@ -79,7 +79,7 @@ const PROJECTS: ProjectItem[] = [
     href: 'https://github.com/danichagas/url-shortener',
     description:
       'API REST de alta performance para encurtamento de URLs construída sob arquitetura modular, persistência de dados orientada a documentos em MongoDB e ambiente padronizado via Docker.',
-    thumbnail: '/projects/url-shortener.svg',
+    thumbnail: '/projects/url-shortener.jpg',
     thumbnailAlt: 'Prévia visual do projeto Url Shortener',
     tags: ['Typescript', 'Node.js', 'Docker', 'MongoDB', 'Mongoose'],
   },
@@ -356,8 +356,8 @@ export function App() {
                         alt={project.thumbnailAlt}
                         loading="lazy"
                         width={200}
-                        height={125}
-                        className="w-full max-w-[200px] rounded border-2 border-slate-200/10 object-cover transition duration-300 sm:max-w-none group-hover:border-slate-200/30"
+                        height={112}
+                        className="aspect-video w-full max-w-[200px] rounded border-2 border-slate-200/10 object-cover transition duration-300 sm:max-w-none sm:translate-y-1 group-hover:border-slate-200/30"
                       />
                     </div>
 
