@@ -37,7 +37,10 @@ export function Sidebar({ activeSection, onSelectSection }: SidebarProps) {
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[42%] xl:w-[40%] lg:flex-col lg:justify-between lg:py-24">
       <div>
-        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+        <h1
+          style={{ animationDelay: '60ms' }}
+          className="animate-fade-in text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl"
+        >
           <a
             href="#"
             aria-label="Daniel Chagas — Voltar ao topo"
@@ -47,15 +50,25 @@ export function Sidebar({ activeSection, onSelectSection }: SidebarProps) {
           </a>
         </h1>
 
-        <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+        <h2
+          style={{ animationDelay: '130ms' }}
+          className="animate-fade-in mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl"
+        >
           Software Enginner
         </h2>
 
-        <p className="mt-4 max-w-xs line-clamp-2 leading-normal text-slate-400">
+        <p
+          style={{ animationDelay: '190ms' }}
+          className="animate-fade-in mt-4 max-w-xs line-clamp-2 leading-normal text-slate-400"
+        >
           Desenvolvedor focado em performance e experiência.
         </p>
 
-        <nav className="hidden lg:mt-16 lg:block" aria-label="Navegação principal">
+        <nav
+          style={{ animationDelay: '260ms' }}
+          className="animate-fade-in hidden lg:mt-16 lg:block"
+          aria-label="Navegação principal"
+        >
           <ul className="w-max space-y-1">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;
@@ -94,7 +107,8 @@ export function Sidebar({ activeSection, onSelectSection }: SidebarProps) {
       </div>
 
       <ul
-        className="mt-8 ml-1 flex items-center gap-5 lg:mt-0"
+        style={{ animationDelay: '330ms' }}
+        className="animate-fade-in mt-8 ml-1 flex items-center gap-5 lg:mt-0"
         aria-label="Redes sociais e contato"
       >
         <li>

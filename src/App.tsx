@@ -195,7 +195,8 @@ export function App() {
           <section
             id="sobre"
             aria-labelledby="heading-sobre"
-            className="mb-24 scroll-mt-16 lg:mb-36 lg:scroll-mt-24"
+            style={{ animationDelay: '180ms' }}
+            className="animate-fade-in mb-24 scroll-mt-16 lg:mb-36 lg:scroll-mt-24"
           >
             <div className="sticky top-0 z-20 -mx-6 mb-4 bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
               <h2
@@ -233,7 +234,8 @@ export function App() {
           <section
             id="experiencia"
             aria-labelledby="heading-experiencia"
-            className="mb-24 scroll-mt-16 lg:mb-36 lg:scroll-mt-24"
+            style={{ animationDelay: '280ms' }}
+            className="animate-fade-in mb-24 scroll-mt-16 lg:mb-36 lg:scroll-mt-24"
           >
             <div className="sticky top-0 z-20 -mx-6 mb-4 bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
               <h2
@@ -310,7 +312,7 @@ export function App() {
 
             <div className="mt-12">
               <a
-                href="public\projects\Daniel Chagas Curriculo.pdf"
+                href={`${import.meta.env.BASE_URL}projects/Daniel%20Chagas%20Curriculo.pdf`}
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="Ver currículo completo em PDF (abre em nova aba)"
@@ -329,7 +331,8 @@ export function App() {
           <section
             id="projetos"
             aria-labelledby="heading-projetos"
-            className="mb-24 scroll-mt-16 lg:mb-36 lg:scroll-mt-24"
+            style={{ animationDelay: '380ms' }}
+            className="animate-fade-in mb-24 scroll-mt-16 lg:mb-36 lg:scroll-mt-24"
           >
             <div className="sticky top-0 z-20 -mx-6 mb-4 bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
               <h2
@@ -418,22 +421,22 @@ export function App() {
             </ul>
           </section>
 
-          <footer className="max-w-md pb-16 text-sm leading-relaxed text-slate-500 sm:pb-0">
+          <footer
+            style={{ animationDelay: '460ms' }}
+            className="animate-fade-in max-w-md pb-16 text-sm leading-relaxed text-slate-500 sm:pb-0"
+          >
             <p>
               Desenvolvido com{' '}
               <span className="font-medium text-slate-400">React</span>,{' '}
               <span className="font-medium text-slate-400">Vite</span>,{' '}
               <span className="font-medium text-slate-400">TypeScript</span>,{' '}
-              <span className="font-medium text-slate-400">Tailwind CSS</span> e{' '}
-              <span className="font-medium text-slate-400">Lucide Icons</span>,
-              utilizando a tipografia{' '}
-              <span className="font-medium text-slate-400">Inter</span>.
-              Código-fonte disponível no{' '}
+              <span className="font-medium text-slate-400">Tailwind CSS</span>. <br />{' '}
+               Código-fonte disponível no{' '}
               <a
                 href="https://github.com/danichagas"
                 target="_blank"
                 rel="noreferrer noopener"
-                aria-label="Ver código-fonte do portfólio no GitHub (abre em nova aba)"
+                aria-label="Ver código-fonte do portfólio no GitHub"
                 className="rounded-sm font-medium text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
               >
                 GitHub
