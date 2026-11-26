@@ -38,7 +38,7 @@ const EXPERIENCES: ExperienceItem[] = [
     company: 'Compass UOL',
     href: 'https://compass.uol/pt/carreiras/',
     description:
-      'Descrição placeholder sobre desenvolvimento de interfaces responsivas, integrações de APIs e evolução contínua da plataforma.',
+      'Estagiário de Desenvolvimento Backend no programa de bolsas da Compass UOL, atuando na construção de APIs e sistemas escaláveis com TypeScript, Node.js, NestJS e Express. Experiência com comunicação assíncrona (RabbitMQ e Kafka), bancos de dados NoSQL (MongoDB/Mongoose) e infraestrutura em nuvem com Docker, Kubernetes e AWS EC2, operando em equipes ágeis (Scrum e Kanban).',
     tags: [
       'Typescript',
       'Node.js',
