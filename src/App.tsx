@@ -1,7 +1,89 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { NAV_ITEMS, SectionId, Sidebar } from './components/Sidebar';
 import { Spotlight } from './components/Spotlight';
+
+interface ExperienceItem {
+  period: string;
+  role: string;
+  company: string;
+  href?: string;
+  description: string;
+  tags: string[];
+}
+
+interface ProjectItem {
+  title: string;
+  href?: string;
+  description: string;
+  highlight?: string;
+  thumbnail: string;
+  thumbnailAlt: string;
+  tags: string[];
+}
+
+const EXPERIENCES: ExperienceItem[] = [
+  {
+    period: '2026 — Atual',
+    role: 'Assistente de TI',
+    company: 'Inovare',
+    href: 'https://www.inovareempreendimentos.com.br/index.php',
+    description:
+      'Atuação no suporte técnico (help desk) prestando atendimento aos usuários para resolução de demandas de hardware, software, redes e periféricos. Experiência na configuração de estações de trabalho, instalação de sistemas operacionais, manutenção preventiva de máquinas, gestão de inventário de ativos, controle de acessos e organização de rotinas administrativas do setor de TI.',
+    tags: ['GLPI', 'Redes', 'WordPress'],
+  },
+  {
+    period: 'JUN — NOV 2025',
+    role: 'Node.js Developer',
+    company: 'Compass UOL',
+    href: 'https://compass.uol/pt/carreiras/',
+    description:
+      'Descrição placeholder sobre desenvolvimento de interfaces responsivas, integrações de APIs e evolução contínua da plataforma.',
+    tags: [
+      'Typescript',
+      'Node.js',
+      'Nest.js',
+      'Express.js',
+      'MongoDB',
+      'AWS',
+      'Docker',
+      'Kubernetes',
+      'RabbitMQ',
+      'Kafka',
+      'Microservices',
+    ],
+  },
+];
+
+const PROJECTS: ProjectItem[] = [
+  {
+    title: 'Route Optimizer API',
+    href: 'https://github.com/danichagas/Route-Optimizer-API',
+    description:
+      'Esta API tem como objetivo principal criar um algoritmo de backend capaz de otimizar a rota de entrega de um caminhão. O sistema receberá uma lista de pontos de entrega (com coordenadas) e determinará a ordem de visitação que minimize a distância total percorrida, garantindo a maior eficiência logística.',
+    thumbnail: '/projects/route-optimizer.svg',
+    thumbnailAlt: 'Prévia visual do projeto Route Optimizer API',
+    tags: [
+      'TypeScript',
+      'Node.js',
+      'Nest.js',
+      'JWT',
+      'Docker',
+      'Kubernetes',
+      'MongoDB',
+      'Mongoose',
+    ],
+  },
+  {
+    title: 'Url Shortener',
+    href: 'https://github.com/danichagas/url-shortener',
+    description:
+      'API REST de alta performance para encurtamento de URLs construída sob arquitetura modular, persistência de dados orientada a documentos em MongoDB e ambiente padronizado via Docker.',
+    thumbnail: '/projects/url-shortener.svg',
+    thumbnailAlt: 'Prévia visual do projeto Url Shortener',
+    tags: ['Typescript', 'Node.js', 'Docker', 'MongoDB', 'Mongoose'],
+  },
+];
 
 export function App() {
   const [activeSection, setActiveSection] = useState<SectionId>('sobre');
@@ -162,52 +244,75 @@ export function App() {
               </h2>
             </div>
 
-            <div className="space-y-8">
-              {[
-                {
-                  period: '2026 — Presente',
-                  role: 'Assistente de TI',
-                  company: 'Inovare',
-                  description:
-                    'Atuação no suporte técnico (help desk) prestando atendimento aos usuários para resolução de demandas de hardware, software, redes e periféricos. Experiência na configuração de estações de trabalho, instalação de sistemas operacionais, manutenção preventiva de máquinas, gestão de inventário de ativos, controle de acessos e organização de rotinas administrativas do setor de TI.',
-                  tags: ['GLPI', 'Redes', 'WordPress'],
-                },
-                {
-                  period: 'JUN — NOV 2025',
-                  role: 'Node.js Developer',
-                  company: 'Compass UOL',
-                  description:
-                    'Descrição placeholder sobre desenvolvimento de interfaces responsivas, integrações de APIs e evolução contínua da plataforma.',
-                  tags: ['Typescript', 'Node.js', 'Nest.js', 'Express.js', 'MongoDB', 'AWS', 'Docker', 'Kubernetes', 'RabbitMQ', 'Kafka', 'Microservices']
-                },
-              ].map((item) => (
-                <article
-                  key={item.period}
-                  className="group relative rounded-lg border border-transparent p-5 transition-all hover:border-slate-700/40 hover:bg-slate-800/50"
+            <ol className="group/list space-y-12">
+              {EXPERIENCES.map((item) => (
+                <li
+                  key={`${item.period}-${item.company}`}
+                  className="transition-opacity duration-300 lg:group-hover/list:opacity-50 lg:hover:!opacity-100"
                 >
-                  <header className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                    {item.period}
-                  </header>
-                  <h3 className="font-medium leading-snug text-slate-200 transition-colors group-hover:text-teal-300">
-                    {item.role} · {item.company}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                    {item.description}
-                  </p>
-                  <ul
-                    className="mt-4 flex flex-wrap gap-2"
-                    aria-label="Tecnologias utilizadas"
-                  >
-                    {item.tags.map((tag) => (
-                      <li key={tag}>
-                        <span className="inline-flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
-                          {tag}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
+                  <article className="group relative grid grid-cols-1 gap-2 rounded-md p-4 transition-all duration-300 sm:grid-cols-8 sm:gap-6 lg:-mx-4 hover:bg-slate-800/50 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
+                    <header
+                      className="z-10 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
+                      aria-label={item.period}
+                    >
+                      {item.period}
+                    </header>
+
+                    <div className="z-10 sm:col-span-6">
+                      <h3 className="font-medium leading-snug text-slate-200">
+                        <a
+                          href={item.href ?? '#experiencia'}
+                          className="inline-flex items-baseline font-medium leading-tight text-slate-200 transition-colors group-hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none"
+                        >
+                          <span className="absolute inset-0 hidden rounded-md lg:block" />
+                          <span>
+                            {item.role} ·{' '}
+                            <span className="inline-block">
+                              {item.company}
+                              <ArrowUpRight
+                                aria-hidden="true"
+                                className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transition-none"
+                              />
+                            </span>
+                          </span>
+                        </a>
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                        {item.description}
+                      </p>
+
+                      <ul
+                        className="mt-4 flex flex-wrap gap-2"
+                        aria-label="Tecnologias utilizadas"
+                      >
+                        {item.tags.map((tag) => (
+                          <li key={tag}>
+                            <span className="inline-flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                              {tag}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                </li>
               ))}
+            </ol>
+
+            <div className="mt-12">
+              <a
+                href="public\projects\Daniel Chagas Curriculo.pdf"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group/link inline-flex items-baseline font-medium leading-tight text-slate-200 transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none"
+              >
+                <span>Ver currículo completo</span>
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform duration-200 group-hover/link:-translate-y-1 group-hover/link:translate-x-1 motion-reduce:transition-none"
+                />
+              </a>
             </div>
           </section>
 
@@ -226,47 +331,82 @@ export function App() {
               </h2>
             </div>
 
-            <div className="space-y-8">
-              {[
-                {
-                  title: 'Route Optimizer API',
-                  description:
-                    'Esta API tem como objetivo principal criar um algoritmo de backend capaz de otimizar a rota de entrega de um caminhão. O sistema receberá uma lista de pontos de entrega (com coordenadas) e determinará a ordem de visitação que minimize a distância total percorrida, garantindo a maior eficiência logística.',
-                  tags: ['TypeScript', 'Node.js', 'Nest.js', 'JWT', 'Docker', 'Kubernetes', 'MongoDB', 'Mongoose'],
-                },
-                {
-                  title: 'Url Shortener',
-                  description:
-                    'API REST de alta performance para encurtamento de URLs construída sob arquitetura modular, persistência de dados orientada a documentos em MongoDB e ambiente padronizado via Docker.',
-                  tags: ['Typescript', 'Node.js', 'Docker', 'MongoDB', 'Mongoose'],
-                },
-              ].map((project) => (
-                <article
+            <ul className="group/list space-y-12">
+              {PROJECTS.map((project) => (
+                <li
                   key={project.title}
-                  className="group relative rounded-lg border border-transparent p-5 transition-all hover:border-slate-700/40 hover:bg-slate-800/50"
+                  className="transition-opacity duration-300 lg:group-hover/list:opacity-50 lg:hover:!opacity-100"
                 >
-                  <h3 className="inline-flex items-center gap-1.5 font-medium leading-snug text-slate-200 transition-colors group-hover:text-teal-300">
-                    <span>{project.title}</span>
-                    <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                    {project.description}
-                  </p>
-                  <ul
-                    className="mt-4 flex flex-wrap gap-2"
-                    aria-label="Tecnologias utilizadas"
-                  >
-                    {project.tags.map((tag) => (
-                      <li key={tag}>
-                        <span className="inline-flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
-                          {tag}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
+                  <article className="group relative grid grid-cols-1 gap-4 rounded-md p-4 transition-all duration-300 sm:grid-cols-8 sm:gap-6 lg:-mx-4 hover:bg-slate-800/50 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
+                    <div className="z-10 sm:col-span-2">
+                      <img
+                        src={project.thumbnail}
+                        alt={project.thumbnailAlt}
+                        loading="lazy"
+                        width={200}
+                        height={125}
+                        className="w-48 rounded border-2 border-slate-200/10 object-cover transition duration-300 sm:w-full group-hover:border-slate-200/30"
+                      />
+                    </div>
+
+                    <div className="z-10 sm:col-span-6">
+                      <h3 className="font-medium leading-snug text-slate-200">
+                        <a
+                          href={project.href ?? '#projetos'}
+                          target={
+                            project.href?.startsWith('http')
+                              ? '_blank'
+                              : undefined
+                          }
+                          rel={
+                            project.href?.startsWith('http')
+                              ? 'noreferrer noopener'
+                              : undefined
+                          }
+                          className="inline-flex items-baseline font-medium leading-tight text-slate-200 transition-colors group-hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none"
+                        >
+                          <span className="absolute inset-0 hidden rounded-md lg:block" />
+                          <span>
+                            {project.title}
+                            <ArrowUpRight
+                              aria-hidden="true"
+                              className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transition-none"
+                            />
+                          </span>
+                        </a>
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                        {project.description}
+                      </p>
+
+                      {project.highlight && (
+                        <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-slate-300">
+                          <Sparkles
+                            aria-hidden="true"
+                            className="h-3.5 w-3.5 text-teal-300"
+                          />
+                          <span>{project.highlight}</span>
+                        </p>
+                      )}
+
+                      <ul
+                        className="mt-4 flex flex-wrap gap-2"
+                        aria-label="Tecnologias utilizadas"
+                      >
+                        {project.tags.map((tag) => (
+                          <li key={tag}>
+                            <span className="inline-flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                              {tag}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
 
           <footer className="max-w-md pb-16 text-xs leading-relaxed text-slate-500 sm:pb-0">
